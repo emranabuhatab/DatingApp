@@ -1,0 +1,12 @@
+{
+    "[git-commit]": {
+
+        "editor.rulers": [
+            72
+        ],
+        "workbench.editor.restoreViewState": false
+    },
+    "git.allowForcePush": true,
+    "git.enableCommitSigning": true,
+    "git.enableSmartCommit": true
+}
