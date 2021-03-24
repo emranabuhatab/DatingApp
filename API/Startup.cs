@@ -30,6 +30,8 @@ namespace API
         {
 
             services.AddControllers();
+            
+
             services.AddDbContext<DataContext>(options =>
             {
                 options.UseSqlite(_config.GetConnectionString("DefaultConnection"));
@@ -39,6 +41,8 @@ namespace API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
             });
+
+            services.AddCors();//here we define cors to access our APIs to our angular project 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +58,8 @@ namespace API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            //here we use cors which means to allow access for any method from our Angular project 
+            app.UseCors(x=>x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200")); 
 
             app.UseAuthorization();
 
